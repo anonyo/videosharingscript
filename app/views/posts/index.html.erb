@@ -1,0 +1,16 @@
+
+<div class="container">
+    
+  
+<div class"row">
+<h1>All Posts</h1>
+
+<% @posts.each do |post| %>
+  <strong><%= post.title %></strong>
+
+  <%= link_to (videojs_rails sources: { mp4: post.attachment.url }, width:"350", height:"300"), post %>
+  <%= "posted " + time_ago_in_words(post.created_at) + " ago" %></br></br>       
+<% end %>
+
+</div>
+  </div>

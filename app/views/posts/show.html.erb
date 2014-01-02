@@ -1,0 +1,19 @@
+<div class="page-header">
+    <h1><%= @post.title %></h1>
+</div>
+
+<%= videojs_rails sources: { mp4: @post.attachment.url }, width:"640", height:"264"%>
+
+<p>
+  <%= @post.description %>
+</p>
+<p>
+  <%= "posted " + time_ago_in_words(@post.created_at) + " ago" %> 
+</p>
+
+<p>
+<% if current_user == @post.user %>  
+<%= link_to "Delete", @post, method: :delete, data: { confirm: "Are you sure you want to delete?" }, class: "btn btn-primary" %>
+<% end %>
+  
+</p>

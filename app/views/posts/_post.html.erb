@@ -1,0 +1,18 @@
+<div class="box">
+        <% @posts.each do |post| %>
+        <%= link_to (image_tag post.attachment.url(:thumb)), post %>
+        <p class="description">
+                <%= pin.description %>
+        </p>
+        <p>
+                <strong>
+                        Posted by <%= link_to pin.user.name, pin.user %>
+                </strong>
+        </p>
+        <% if current_user == post.user %>
+                <p>
+                  <%= link_to 'Edit', edit_pin_path(pin) %>
+                  <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </p>
+        <% end %>
+</div>
